@@ -1,0 +1,26 @@
+{
+	"name": "fractal-pi",
+	"version": "0.1.0",
+	"type": "module",
+	"keywords": [
+		"pi-package"
+	],
+	"pi": {
+		"extensions": [
+			"./extension/index.ts"
+		]
+	},
+	"scripts": {
+		"test": "node --test test/*.test.ts",
+		"typecheck": "tsc --noEmit",
+		"format": "biome format --write .",
+		"lint": "biome lint .",
+		"meter": "node scripts/complexity.mjs",
+		"enforce": "npm run typecheck && biome ci . && npm test"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.5.11",
+		"@types/node": "^26.4.0",
+		"typescript": "^5.9.0"
+	}
+}

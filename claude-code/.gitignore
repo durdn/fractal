@@ -1,0 +1,4 @@
+# install.sh writes these next to the skill. When the skill is a junction
+# back to this repo, they land inside the source tree. Install state, not source.
+home
+home.path

@@ -1,0 +1,3 @@
+#!/bin/sh
+# cmd/fixtures/codegraph: the POSIX twin of codegraph.cmd.
+exec node "$(dirname "$0")/fake-tool.mjs" codegraph "$@"

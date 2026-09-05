@@ -1,0 +1,4 @@
+#!/bin/sh
+# cmd/hooks/commit-msg: wires cmd/enforce-writes.mjs as a commit-msg hook. Wire
+# with: git config core.hooksPath cmd/hooks
+exec node "$(dirname "$0")/../enforce-writes.mjs" "$1"

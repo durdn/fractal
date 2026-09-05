@@ -1,0 +1,15 @@
+
+# Beads / Dolt files (added by bd init)
+.dolt/
+*.db
+.beads-credential-key
+.beads/proxieddb/
+
+# local harness and index state
+.claude/settings.local.json
+.codegraph/
+.claude/worktrees/
+__pycache__/
+.pytest_cache/
+claude-code/home.path
+node_modules/
