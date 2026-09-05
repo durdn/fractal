@@ -1,5 +1,7 @@
 # fractal
 
+<p align="center"><img src="assets/fractal-infographic.png" alt="Fractal: one shape, every scale" width="720"></p>
+
 Fractal is an agent framework: a spec in types, and a loop that runs an intent
 through agents. The session plans by default, delegates independent work,
 and judges the evidence. A planning child is optional. The
