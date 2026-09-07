@@ -40,10 +40,10 @@ judge = Accept | Fail step why | Stop why  -- the process reads the record, neve
   -- Stop: the budget is out; close with the reason, which is memory
 
 -- who
-pattern  -- parent by default, memory first; a planning child spawns nothing
+pattern  -- parent by default, memory first; a planning child spawns nothing; an owner child is the process of its slice
 scout    -- reads; never writes, never mutates; facts it checked and where; "not there" over a guess; its item is step:pattern, by:<scout>
 worker   -- work.   verifier -- verify.   senior -- reduce; each in the foreground, exiting with nothing running
-process  -- the session: plans, delegates independent items, collects deliverables, manages Name claims and worktrees, judges the evidence; a planning child receives corrected facts, scope lands at judge or after a stop
+process  -- the session, or an owner child over its slice: plans, delegates independent items, collects deliverables, manages Name claims and worktrees, judges the evidence; a planning child receives corrected facts, scope lands at judge or after a stop
 
 class Tracker where create, claim, comment, close, show, list
   -- an item: an estimate in minutes; metadata artifact failure claims pid spent
@@ -61,7 +61,7 @@ instance Tracker = bd 1.2.2
   -- bd update <id> --claim | -s in_progress | --set-metadata k=v for a scalar | --metadata '{...}' for a list; bd comment <id> "..."; bd close <id> -r "..."; bd dep <a> --blocks <b>
   -- memory: bd list --json -s closed -l axis:Code --sort closed -n 20; if empty, drop -l and match titles/paths or the supplied restart documents; pass ids; retry a lock once
 
-instance Runner = Agent tool  -- fractal-scout, fractal-worker, fractal-verifier, fractal-senior; fractal-lead plans, without the Agent tool; /fractal <intent> makes the session the process of one loop
+instance Runner = Agent tool  -- fractal-scout, fractal-worker, fractal-verifier, fractal-senior; fractal-lead plans, without the Agent tool; no role here holds it, so on this box the session is the only process and an owner child needs a runner that nests, named in the item; /fractal <intent> makes the session the process of one loop
   -- the model is the frontmatter's: scout and worker sonnet, lead, verifier and senior opus; an override carries its why in the item
   -- the home: node cmd/worktree.mjs add <item> before the spawn, a sibling of the checkout at its depth, <repo>--<item>, a branch per item; one writer commits in a worktree at a time; the process lands it at judge, land <item>, or drops it on a Fail; bd from a worktree reaches the root's tracker
   -- a finished spawn wakes on the exit of a background task it left, on stale context; a reported spawn is stopped before the next step, except a verifier that failed: the fix comes back to it by message, re-verified on the figures it holds, and it is stopped at judge; a killed spawn batch is followed by the runner's own agent list, for orphans

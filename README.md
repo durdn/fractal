@@ -4,7 +4,8 @@
 
 Fractal is an agent framework: a spec in types, and a loop that runs an intent
 through agents. The session plans by default, delegates independent work,
-and judges the evidence. A planning child is optional. The
+and judges the evidence. A planning child is optional; an owner child takes a
+disjoint slice and returns its verdict. The
 smallest plan is work and judge; verify, enforce and reduce join it when the
 intent says why. Tools are reached through interfaces, so any one of them can be
 replaced. Three real runs cut it to this kernel; what they did not pay for is in

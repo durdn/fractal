@@ -23,6 +23,12 @@ The axis's tool bindings are defaults for its original harness. In Codex:
   that binding; report a missing binding rather than substituting another harness.
   Outside Herdr, use native Codex agents when available and authorized. Without a
   runner, the parent can work; report any independent verification still missing.
+- Choose flat or delegated topology and say which; flat is the default. An owner
+  child takes a disjoint question with its own budget, claims and authority to
+  delegate inside it, and returns a verdict; the shared contract, the trial
+  registry, the holdout and the final judgment stay with the parent. One short
+  script does not earn a second tier, and a child is named for what it holds:
+  a worker that implements the parent's candidates is not a lead.
 - Herdr roles: scout for local facts, researcher for sources, worker for changes,
   reviewer for verification; general for lightweight synthesis. Use its role
   defaults, escalating only for a concrete task need. Fractal lead and senior are
